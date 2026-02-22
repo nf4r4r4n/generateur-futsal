@@ -1,35 +1,44 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { colors } from "@/constants/theme";
+import Octicons from "@expo/vector-icons/Octicons";
+import { Tabs } from "expo-router";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+const tabBarOptions = [
+  {
+    name: "index",
+    title: "Accueil",
+    icon: "home",
+    bg: colors.green["50"],
+    color: colors.green["600"],
+  },
+  {
+    name: "import-players",
+    title: "Importer",
+    icon: "upload",
+    bg: colors.blue["50"],
+    color: colors.blue["600"],
+  },
+];
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function RootLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+    <Tabs>
+      {tabBarOptions.map(
+        ({ name, title, icon, bg, color: textColor }, index) => (
+          <Tabs.Screen
+            key={index}
+            name={name}
+            options={{
+              title,
+              tabBarIcon: ({ color }) => (
+                <Octicons name={icon as any} color={color} />
+              ),
+              tabBarActiveBackgroundColor: bg,
+              tabBarActiveTintColor: textColor,
+              headerShown: false,
+            }}
+          />
+        ),
+      )}
     </Tabs>
   );
 }
