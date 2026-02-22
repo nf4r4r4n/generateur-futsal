@@ -1,53 +1,35 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-import { Platform } from 'react-native';
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+export const colors = {
+  blue: {
+    50: "#eff6ff", // bg-blue-50 - fond très clair
+    200: "#bfdbfe", // border-blue-200 - bordure claire
+    500: "#3b82f6", // bg-blue-500 - bleu moyen (boutons, icônes)
+    600: "#2563eb", // hover:bg-blue-600 - hover
+    800: "#1e40af", // text-blue-800 - texte moyen-foncé
+    900: "#1e3a8a", // text-blue-900 - texte foncé
   },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+  green: {
+    50: "#f0fdf4", // bg-green-50 - fond très clair
+    500: "#22c55e", // bg-green-500 - vert principal
+    600: "#16a34a", // hover:bg-green-600 - hover
   },
+  gray: {
+    200: "#e5e7eb", // border-gray-200 - bordures
+    300: "#d1d5db", // border-gray-300 - bordures drag zone
+    400: "#9ca3af", // text-gray-400 - icônes claires
+    500: "#6b7280", // text-gray-500 - texte secondaire
+    600: "#4b5563", // text-gray-600 - descriptions
+    700: "#374151", // text-gray-700 - texte normal
+    900: "#111827", // text-gray-900 - titres
+  },
+  yellow: {
+    50: "#fefce8", // bg-yellow-50 - fond clair
+    200: "#fde047", // border-yellow-200 - bordure
+    800: "#854d0e", // text-yellow-800 - texte
+    900: "#713f12", // text-yellow-900 - titre
+  },
+  red: {
+    500: "#ef4444", // text-red-500 - bouton supprimer
+    700: "#b91c1c", // hover:text-red-700 - hover supprimer
+  },
+  white: "#ffffff", // bg-white - fond général
 };
-
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
